@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+      <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+      <head>
+      <meta charset="UTF-8">
+      <title>Liste des Conférences</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+<div layout:fragment="content">
+
+  <h1 class="text-3xl font-semibold text-center py-4">Liste des Conférences</h1>
+  <div class="flex justify-center mb-6">
+    <form th:action="@{/conferences/speaker}" method="get" class="bg-white p-6 rounded-lg shadow-lg w-full sm:w-96">
+      <label for="speaker" class="block text-lg font-medium text-gray-700 mb-2">Rechercher par speaker :</label>
+      <input type="text" id="speaker" name="speaker" placeholder="Entrez speaker"
+             th:value="${search}" required class="w-full px-4 py-2 border border-gray-300 rounded-md">
+      <button type="submit" class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200">Rechercher</button>
+    </form>
+  </div>
+
+  <div class="overflow-x-auto px-4">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-gray-800 text-white">
+      <tr>
+        <th class="py-2 px-4 text-left">Titre</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="conference : ${conferences}" class="border-b hover:bg-gray-50">
+        <td class="py-2 px-4" th:text="${conference.titre}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>

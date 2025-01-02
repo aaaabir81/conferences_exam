@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des Conferences</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="p-3 m-2">
+  <div class="card bg-white shadow-lg rounded-lg">
+    <div class="card-header bg-gray-800 text-white p-4">
+      <nav class="navbar flex justify-between items-center">
+        <ul class="flex space-x-4">
+          <li>
+            <a class="text-white hover:text-gray-300" th:href="@{/conferences}">Conferences</a>
+          </li>
+          <li class="relative">
+            <button class="text-white hover:text-gray-300" id="navbarDropdownMenuLink" data-dropdown-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Gestion
+            </button>
+            <ul class="absolute hidden bg-white border border-gray-300 rounded shadow-md mt-1 w-48" id="dropdownMenu">
+              <li><a class="block px-4 py-2 text-gray-700 hover:bg-gray-200" th:href="@{/conferences/ajouter}">Nouvelle Conference</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="card-body p-4">
+      <div layout:fragment="content">
+      </div>
+    </div>
+
+    <div class="card-footer text-center bg-gray-800 text-white py-4">
+      &copy; copyright: xproce 2024 <br/>
+      Agadir - Morocco <br/>
+      <a href="mailto:aabir.hamdaoui@gmail.com">aabir.hamdaoui@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("navbarDropdownMenuLink").addEventListener("click", function() {
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    dropdownMenu.classList.toggle("hidden");
+  });
+</script>
+
+</body>
+</html>
